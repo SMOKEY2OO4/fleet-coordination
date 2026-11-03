@@ -1,0 +1,140 @@
+{
+    "target": "is_congested",
+    "train_scenarios": 400,
+    "test_scenarios": 100,
+    "train_samples": 8220,
+    "test_samples": 2569,
+    "best_model": "Decision Tree",
+    "models": {
+        "Logistic Regression": {
+            "accuracy": 0.8797197353055664,
+            "precision": 0.9363295880149812,
+            "recall": 0.8480325644504749,
+            "f1_score": 0.8899964400142399,
+            "roc_auc": 0.9374082266128883,
+            "confusion_matrix": [
+                [
+                    1010,
+                    85
+                ],
+                [
+                    224,
+                    1250
+                ]
+            ]
+        },
+        "Decision Tree": {
+            "accuracy": 0.8984040482678085,
+            "precision": 0.9469417833456153,
+            "recall": 0.8717774762550882,
+            "f1_score": 0.9078064288237372,
+            "roc_auc": 0.9466084893093685,
+            "confusion_matrix": [
+                [
+                    1023,
+                    72
+                ],
+                [
+                    189,
+                    1285
+                ]
+            ]
+        },
+        "Random Forest": {
+            "accuracy": 0.8890618917866874,
+            "precision": 0.9420074349442379,
+            "recall": 0.8595658073270014,
+            "f1_score": 0.8989003192621497,
+            "roc_auc": 0.9366167295527345,
+            "confusion_matrix": [
+                [
+                    1017,
+                    78
+                ],
+                [
+                    207,
+                    1267
+                ]
+            ]
+        },
+        "Gradient Boosting": {
+            "accuracy": 0.8890618917866874,
+            "precision": 0.9368111682586333,
+            "recall": 0.8649932157394844,
+            "f1_score": 0.8994708994708994,
+            "roc_auc": 0.9415382613706065,
+            "confusion_matrix": [
+                [
+                    1009,
+                    86
+                ],
+                [
+                    199,
+                    1275
+                ]
+            ]
+        },
+        "feature_importances": [
+            {
+                "feature": "prior_waiting_steps",
+                "importance": 0.8185327498432956
+            },
+            {
+                "feature": "competing_requests",
+                "importance": 0.12758359852949613
+            },
+            {
+                "feature": "time_step",
+                "importance": 0.024790787462500904
+            },
+            {
+                "feature": "occupied_nodes",
+                "importance": 0.011912417850727617
+            },
+            {
+                "feature": "next_node_H",
+                "importance": 0.005317909444777804
+            },
+            {
+                "feature": "competing_ratio",
+                "importance": 0.0039016027252687167
+            },
+            {
+                "feature": "directed_edge_D->G",
+                "importance": 0.003424471403307734
+            },
+            {
+                "feature": "current_node_G",
+                "importance": 0.003353196594996358
+            },
+            {
+                "feature": "occupancy_density",
+                "importance": 0.00045057470034072343
+            },
+            {
+                "feature": "directed_edge_C->F",
+                "importance": 0.0004089730319988182
+            },
+            {
+                "feature": "current_node_I",
+                "importance": 0.0003237184132895524
+            },
+            {
+                "feature": "is_corner_destination",
+                "importance": 0.0
+            },
+            {
+                "feature": "robot_count",
+                "importance": 0.0
+            },
+            {
+                "feature": "current_node_B",
+                "importance": 0.0
+            },
+            {
+                "feature": "current_node_A",
+                "importance": 0.0
+            }
+        ]
+    }
+}
