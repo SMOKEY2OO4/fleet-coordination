@@ -1,0 +1,7 @@
+timestamp,robot_id,task_id,event_type,current_node,next_node,planned_path,details
+2026-10-31T08:16:33.534277+00:00,AMR-01,621fda46-d1bc-4d5e-bb9d-c607efb6ca89,pickup_reached,B,,null,{}
+2026-10-31T08:16:40.332459+00:00,AMR-01,621fda46-d1bc-4d5e-bb9d-c607efb6ca89,reroute,B,E,"[""B"", ""E"", ""F"", ""I""]","{""original_path"": [""B"", ""C"", ""F"", ""I""], ""occupied_nodes"": [""C""]}"
+2026-10-31T08:16:40.333849+00:00,AMR-01,621fda46-d1bc-4d5e-bb9d-c607efb6ca89,movement,B,E,"[""B"", ""E"", ""F"", ""I""]",{}
+2026-10-31T08:16:50.661327+00:00,AMR-01,621fda46-d1bc-4d5e-bb9d-c607efb6ca89,movement,E,F,"[""E"", ""F"", ""I""]",{}
+2026-10-31T08:16:51.981036+00:00,AMR-01,621fda46-d1bc-4d5e-bb9d-c607efb6ca89,movement,F,I,"[""F"", ""I""]",{}
+2026-10-31T08:16:51.982206+00:00,AMR-01,621fda46-d1bc-4d5e-bb9d-c607efb6ca89,task_completed,I,,null,{}
