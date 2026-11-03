@@ -1,0 +1,89 @@
+[
+    {
+        "timestamp": "2026-10-31T08:16:33.534277+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "621fda46-d1bc-4d5e-bb9d-c607efb6ca89",
+        "event_type": "pickup_reached",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-10-31T08:16:40.332459+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "621fda46-d1bc-4d5e-bb9d-c607efb6ca89",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-10-31T08:16:40.333849+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "621fda46-d1bc-4d5e-bb9d-c607efb6ca89",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-10-31T08:16:50.661327+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "621fda46-d1bc-4d5e-bb9d-c607efb6ca89",
+        "event_type": "movement",
+        "current_node": "E",
+        "next_node": "F",
+        "planned_path": [
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-10-31T08:16:51.981036+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "621fda46-d1bc-4d5e-bb9d-c607efb6ca89",
+        "event_type": "movement",
+        "current_node": "F",
+        "next_node": "I",
+        "planned_path": [
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-10-31T08:16:51.982206+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "621fda46-d1bc-4d5e-bb9d-c607efb6ca89",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    }
+]
