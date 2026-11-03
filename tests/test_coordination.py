@@ -245,3 +245,4 @@ def test_chain_blocked_at_tail():
     requests, approved = resolve_simultaneous_moves_improved(robots)
     assert len(approved) == 0
     check_movement_safety(robots, approved, requests)
+

@@ -173,3 +173,4 @@ def render_scenario_animation(scenario_id: int = 1, output_path: Path = None, ma
 
 if __name__ == "__main__":
     render_scenario_animation(scenario_id=1)
+

@@ -205,3 +205,4 @@ The system implements strict physical safety invariants enforced by `check_movem
 2. **Edge Safety**: If AMR $i$ traverses $u \to v$, no AMR $j$ can traverse $v \to u$ at time $t$.
 3. **Stationary Preservation**: No robot may enter a node occupied by a stationary robot.
 4. **Fail-Safe Independence**: Machine Learning provides risk heuristics, but the movement resolver independently checks and enforces physical collision boundaries.
+
