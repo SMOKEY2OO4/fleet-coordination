@@ -15,7 +15,7 @@
         "deadlock_recovery_invocations": 1062,
         "average_route_length": 2.96,
         "safety_violations": 0,
-        "simulation_time_seconds": 0.064
+        "simulation_time_seconds": 0.063
     },
     {
         "algorithm": "Improved Resolver",
@@ -69,6 +69,6 @@
         "deadlock_recovery_invocations": 1286,
         "average_route_length": 2.96,
         "safety_violations": 0,
-        "simulation_time_seconds": 1.268
+        "simulation_time_seconds": 1.171
     }
 ]

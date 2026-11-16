@@ -1,63 +1,51 @@
-# Multi-Robot Fleet Coordination and Congestion Management in a Warehouse Environment
+# FLEETIQ — Intelligent Warehouse Fleet Management Platform
 
-An intelligent Multi-Agent Pathfinding (MAPF) and fleet traffic management system designed for Autonomous Mobile Robots (AMRs) operating simultaneously in shared warehouse environments.
+An industrial-grade Autonomous Mobile Robot (AMR) multi-agent coordination, collision resolution, and machine learning congestion intelligence platform designed for high-density warehouse fulfillment environments.
 
 Developed as a Final Year Engineering / Computer Science Capstone Project.
 
 ---
 
-## 1. System Overview
-
-In automated fulfillment centers, fleets of Autonomous Mobile Robots (AMRs) share constrained navigation aisles. Without intelligent spatial and temporal coordination, AMRs suffer from vertex collisions, head-on deadlocks, mutual blocking loops, and cascading traffic congestion.
-
-This system integrates:
-1. **Discrete-Event Fleet Simulation Engine**: Simulates multi-robot operations across 500 scenarios (2–5 simultaneous AMRs) on a standardized warehouse topological graph.
-2. **Provably Safe Simultaneous Movement Resolver**: Mathematical graph-theoretic resolver supporting safe circular rotations ($\ge 3$ AMRs), chain advancement, starvation-free rotating priority, and head-on swap prevention.
-3. **Machine Learning Congestion Forecasting**: Leak-free ML models (Decision Tree, Logistic Regression, Random Forest, Gradient Boosting) achieving **89.84% accuracy, 94.69% precision, and 0.9466 ROC-AUC** predicting movement congestion.
-4. **ML-Assisted Coordination**: Dynamic congestion-risk pricing incorporated into path generation and conflict arbitration.
-5. **Real-Time FastAPI Fleet Service**: RESTful API providing asynchronous task allocation, A* path planning, and physical reservation locking.
-6. **Visualization Suite**: Interactive Matplotlib simulation visualizer / animator and 10 publication-quality performance comparison charts.
-
----
-
-## 2. Warehouse Environment & Topology
-
-The warehouse is modeled as a 9-node bidirectional topological graph on a 3×3 grid:
-
-```
-[A] (0, 0) ===== [B] (1, 0) ===== [C] (2, 0)
-     ||               ||               ||
-[D] (0, 1) ===== [E] (1, 1) ===== [F] (2, 1)
-     ||               ||               ||
-[G] (0, 2) ===== [H] (1, 2) ===== [I] (2, 2)
-```
-
-- **Vertices ($V=9$)**: Picking stations, sorting depots, and intersection waypoints.
-- **Edges ($E=24$ directed)**: Navigable bidirectional aisles between adjacent locations.
-- **Center Bottleneck (Node `E`)**: Highest-degree intersection (degree 4) exhibiting peak traffic contention.
-
----
-
-## 3. Project Architecture
+## 1. System Architecture
 
 ```
 fleet-coordination/
 │
-├── backend/                             # Real-Time Fleet REST API
+├── frontend/                            # Industrial FleetIQ React 19 + TypeScript + Tailwind Web App
+│   ├── src/
+│   │   ├── components/                  # Reusable UI & Warehouse Visualization Elements
+│   │   │   ├── layout/                  # Sidebar, TopNavbar, Main Layout Shell
+│   │   │   ├── ui/                      # StatCard, Badge, Modal, Loading Skeleton
+│   │   │   └── warehouse/               # 2D Interactive Map, Live Event Feed, Controls, Drawer
+│   │   ├── pages/                       # 9 Complete Industrial Fleet Management Pages
+│   │   │   ├── DashboardPage.tsx        # Page 1: Executive Overview Dashboard
+│   │   │   ├── WarehouseControlPage.tsx # Page 2: Live Warehouse Control Centre (2D Canvas)
+│   │   │   ├── FleetManagementPage.tsx  # Page 3: Robot Fleet Management
+│   │   │   ├── TaskManagementPage.tsx   # Page 4: Logistics Task Allocation & Tracking
+│   │   │   ├── CoordinationMonitorPage  # Page 5: Intelligent Coordination & Conflict Monitor
+│   │   │   ├── MLIntelligencePage.tsx   # Page 6: Machine Learning Congestion Intelligence
+│   │   │   ├── PerformanceAnalyticsPage # Page 7: Performance Analytics & Benchmarks
+│   │   │   ├── ExperimentLabPage.tsx    # Page 8: Simulation Experiment Lab
+│   │   │   └── SystemSettingsPage.tsx   # Page 9: System Architecture & Infrastructure
+│   │   ├── services/                    # Centralized Axios API & WebSocket Telemetry Client
+│   │   └── types/                       # Shared Domain TypeScript Interfaces
+│   └── package.json                     # Vite + Tailwind + Recharts + Framer Motion toolchain
+│
+├── backend/                             # Real-Time Fleet REST API & WebSocket Server
 │   ├── app/
-│   │   ├── api/                         # FastAPI Endpoints (robots, routes, tasks, metrics)
+│   │   ├── api/                         # FastAPI Endpoints (robots, routes, tasks, warehouse, simulation, ml, experiments)
 │   │   ├── coordination/                # Mutex-Locked Node/Edge Reservation Manager
 │   │   ├── core/                        # In-Memory State & Metric Logging
-│   │   ├── models/                      # Pydantic Domain Schemas
-│   │   ├── planning/                    # Manhattan A* & Warehouse Graph
-│   │   ├── services/                    # Movement Dispatch Service
-│   │   └── main.py                      # FastAPI Application Entrypoint
-│   └── tests/                           # Backend Unit Tests (Planning & Movement)
+│   │   ├── models/                      # Pydantic Domain Schemas (Robot, Task, Simulation)
+│   │   ├── planning/                    # Manhattan A* & Warehouse Graph (A-I 9-Node Topology)
+│   │   ├── services/                    # Movement Dispatch & Real-Time Simulation Engine
+│   │   └── main.py                      # FastAPI Application Entrypoint & Static SPA Mount
+│   └── tests/                           # Backend Unit Tests (Planning, Movement, API Extensions)
 │
 ├── data/
 │   ├── baseline/                        # Preserved Baseline Datasets (Immutable Reference)
 │   ├── raw/                             # Simulation Data (v1, v2, robot reports, event logs)
-│   └── experiments/                     # Benchmark Summaries & ML Metrics JSON
+│   └── experiments/                     # Benchmark Summaries, ML Metrics JSON & Custom Experiments
 │
 ├── ml/                                  # Machine Learning & Simulation
 │   ├── models/                          # Serialized ML Pipelines (.joblib) & Feature Importances
@@ -65,144 +53,154 @@ fleet-coordination/
 │   ├── train_congestion_model.py        # Leak-Free ML Training Pipeline (4 Classifiers)
 │   ├── ml_coordination.py               # ML-Assisted Congestion-Aware Routing Engine
 │   ├── benchmark_experiments.py         # Controlled 4-Algorithm Comparative Benchmark
-│   ├── generate_visualizations.py       # Publication-Grade Chart Generator (10 Charts)
-│   ├── inspect_simulation_v2.py         # Dataset Diagnostics & Distribution Inspector
-│   └── analyze_failures.py              # Failure Breakdown & Robot Progress Analyzer
+│   └── generate_visualizations.py       # Publication-Grade Chart Generator (10 Charts)
 │
-├── results/
-│   ├── charts/                          # 10 Generated High-Resolution Publication Charts
-│   └── warehouse_simulation_scenario1.gif # Visual Animated Fleet Simulation
+├── simulator/                           # Visual Simulation Utilities
+│   └── warehouse_visualizer.py          # Animated Simulation Matplotlib & Frame Renderer
 │
-├── simulator/
-│   └── warehouse_visualizer.py          # Interactive / Animation Warehouse Renderer
-│
-├── tests/                               # Comprehensive Automated Test Suite (30 Tests)
-│   ├── test_coordination.py             # Resolver Edge Cases (Rotations, Chains, Swaps)
-│   ├── test_coordination_helpers.py     # Independent Physical Safety Invariant Checker
-│   └── test_system_suite.py             # End-to-End System, ML, & Reproducibility Tests
-│
-├── docs/                                # Technical Documentation & Presentation
-│   ├── FINAL_PROJECT_REPORT.md          # 23-Section Capstone Academic Report
-│   └── PROJECT_PRESENTATION.md          # 15-Slide Final Defense Guide & Viva Prep
-│
-├── pytest.ini                           # Pytest Environment Configuration
-└── README.md                            # Comprehensive User Manual & Quickstart
+├── launch_platform.py                   # Unified Single-Command Development Platform Launcher
+├── run_project.py                       # Automated End-to-End Pipeline & Test Runner (37 Tests)
+└── pytest.ini                           # Test Configuration
 ```
 
 ---
 
-## 4. Environment Setup
+## 2. Warehouse Grid Topology
 
-### Prerequisites
-- Python 3.10+ (Tested on Python 3.13.2, Windows 10/11)
-- Virtual Environment (`.venv`)
+The warehouse is modeled as a standardized 9-node bidirectional topological graph on a 3×3 grid:
 
-### Installation
-Activate the virtual environment:
-```powershell
-# Windows PowerShell
-.\.venv\Scripts\Activate.ps1
+```
+[A] (0, 0) ===== [B] (1, 0) ===== [C] (2, 0)   (Inbound Receiving Docks)
+     ||               ||               ||
+[D] (0, 1) ===== [E] (1, 1) ===== [F] (2, 1)   (Central Transit Arteries & Hub E)
+     ||               ||               ||
+[G] (0, 2) ===== [H] (1, 2) ===== [I] (2, 2)   (Outbound Sorting Depots)
 ```
 
-Verify installed packages:
-```powershell
-python -m pytest --version
-python -c "import sklearn, matplotlib, pandas, numpy; print('Environment healthy!')"
-```
+- **Vertices ($V=9$)**: Nodes A through I with specified logistics roles.
+- **Edges ($E=24$ directed, 12 bidirectional)**: High-throughput aisles between adjacent coordinates.
+- **Central Intersection Hub (Node `E`)**: Degree 4 crossway exhibiting peak contention and bottleneck risk.
 
 ---
 
-## 5. Execution Guide
+## 3. Platform Capabilities & Complete Pages
 
-### 1. Run Automated Tests
-Execute the full 30-test automated verification suite:
-```powershell
-python -m pytest -v
-```
+1. **Executive Overview Dashboard (`/`)**:
+   - Fleet KPIs: Total, active, idle robots, and utilization rate.
+   - Task metrics: Total, completed, queued, and delivery completion rate.
+   - Congestion level and average waiting steps.
+   - Hourly movement volume area chart and AMR status distribution pie chart.
+   - 4-algorithm benchmark quick-summary comparison.
 
-### 2. Run Baseline Multi-Robot Simulation
-Simulate 500 scenarios with the original baseline simulator:
-```powershell
-python ml/simulate_warehouse_v2.py
-```
-*Outputs: `data/raw/simulation_data_v2.csv` (10,789 records), `data/raw/scenario_robot_report.csv` (1,731 robots).*
+2. **Live Warehouse Control Centre (`/live-control`)**:
+   - High-fidelity interactive 2D SVG canvas rendering nodes A–I and all connecting arteries.
+   - Real-time animated AMR movement transitions with direction vectors.
+   - Controllable via Start, Pause, Resume, Reset, Speed selector (0.5x, 1x, 2x, 4x), and Single-step execution.
+   - Live event feed categorized by movements, conflicts, and deadlock recovery events.
+   - Interactive robot drawer showing position, destination, battery SOC, and active route.
 
-### 3. Train Machine Learning Models
-Train, evaluate, and save the leak-free congestion prediction classifiers:
-```powershell
-python ml/train_congestion_model.py
-```
-*Outputs: `ml/models/best_congestion_model.joblib`, `ml/models/feature_importances.csv`, `data/experiments/ml_evaluation_metrics.json`.*
+3. **Robot Fleet Management (`/fleet`)**:
+   - Commission new simulated or physical AMRs at any valid warehouse node.
+   - Real-time search by AMR ID and status filtering (IDLE, ASSIGNED, MOVING, WAITING).
+   - Advance robot movement by single step and decommission/delete robots cleanly.
 
-### 4. Execute Comparative Benchmark Suite
-Run identical 500-scenario seed-controlled benchmark across all 4 algorithms:
-```powershell
-python ml/benchmark_experiments.py
-```
-*Outputs: `data/experiments/benchmark_comparison_summary.csv` and `.json`.*
+4. **Logistics Task Allocation (`/tasks`)**:
+   - Create delivery missions specifying origin node, destination node, and priority (HIGH, MEDIUM, LOW).
+   - Dispatch available idle AMRs automatically using the task allocator.
+   - Track progress from QUEUED to ASSIGNED, IN_PROGRESS, and COMPLETED.
+   - Cancel pending tasks safely and release associated AMR resources.
 
-### 5. Generate Publication Performance Charts
-Produce 10 high-resolution charts in `results/charts/`:
-```powershell
-python ml/generate_visualizations.py
-```
+5. **Intelligent Coordination Monitor (`/coordination`)**:
+   - Vertex and edge conflict prevention invariants explained and verified.
+   - Contention arbitration metrics: Approved moves, blocked moves, and deadlock recovery triggers.
+   - Starvation-free priority order and rotational cycle detection.
+   - In-memory movement metrics log audit table with CSV export.
 
-### 6. Generate Warehouse Animation
-Render animated GIF of fleet movement:
-```powershell
-python simulator/warehouse_visualizer.py
-```
-*Outputs: `results/warehouse_simulation_scenario1.gif`.*
+6. **Machine Learning Intelligence (`/ml-intelligence`)**:
+   - Trained Decision Tree classifier pipeline achieving **89.84% accuracy, 94.69% precision, and 0.9466 ROC-AUC**.
+   - Test set confusion matrix display ($1,023$ TN, $72$ FP, $189$ FN, $1,285$ TP).
+   - Top predictive feature importances chart (occupancy density, prior waiting steps, center destination, etc.).
+   - Interactive candidate movement prediction inspector calculating $P(\text{Congestion} \mid u \to v)$ in real-time.
 
-### 7. Launch FastAPI Fleet Server
-Start the real-time AMR coordination backend:
-```powershell
-uvicorn backend.app.main:app --reload --port 8000
-```
-Open interactive Swagger documentation in browser at: `http://127.0.0.1:8000/docs`
+7. **Performance Analytics & Benchmarks (`/analytics`)**:
+   - Controlled 4-algorithm benchmark results comparing Baseline, Improved Resolver, Improved Recovery, and ML-Assisted.
+   - Scientific bar charts for completion rate, movement breakdown, and deadlock recovery invocations.
+   - Algorithm matrix highlighting optimal empirical results across all 11 scientific metrics.
 
----
+8. **Simulation Experiment Lab (`/experiment-lab`)**:
+   - Empirical experiment interface allowing custom runs with selected algorithms, scenario counts (5–50), and seeds.
+   - Live execution metrics and safety invariant verification.
+   - Isolated results storage (`data/experiments/custom_experiments.json`) preserving baseline benchmark purity.
 
-## 6. Machine Learning Evaluation
-
-Evaluated across **2,569 held-out test movements** from 100 unseen scenarios (Scenarios 401–500):
-
-| Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
-|---|---|---|---|---|---|
-| **Decision Tree (Best)** | **89.84%** | **94.69%** | **87.18%** | **90.78%** | **0.9466** |
-| Random Forest | 88.91% | 94.20% | 85.96% | 89.89% | 0.9366 |
-| Gradient Boosting | 88.91% | 93.68% | 86.50% | 89.95% | 0.9415 |
-| Logistic Regression | 87.97% | 93.63% | 84.80% | 89.00% | 0.9374 |
-
-### Confusion Matrix (Decision Tree)
-- True Negatives (Clear correctly predicted): **1,023**
-- True Positives (Congestion correctly predicted): **1,285**
-- False Negatives: **189**
-- False Positives: **72**
+9. **System Architecture & Settings (`/settings`)**:
+   - Real-time service connectivity check for FastAPI, WebSocket stream, and ML pipeline.
+   - Swagger API documentation link (`/docs`).
+   - Platform specifications and safety invariants audit.
 
 ---
 
-## 7. Comparative Benchmark Results
+## 4. Quick Launch Instructions
 
-Results across 500 identical scenarios (1,731 robots total):
+### Option A: Unified Launcher (Starts Frontend + Backend)
 
-| Metric | Baseline | Improved Resolver | ML-Assisted |
-|---|---|---|---|
-| **Task Completion Rate** | 98.27% | 98.27% | 97.57% |
-| **Incomplete Robots** | 30 | 30 | 42 |
-| **Safety Violations** | **0 (100% Safe)** | **0 (100% Safe)** | **0 (100% Safe)** |
-| **Multi-Robot Rotations ($\ge 3$)** | Rejected | **Approved** | **Approved** |
-| **Fallback Reconsideration** | No | **Yes** | **Yes** |
-| **Starvation-Free Rotating Priority** | Partial | **Yes** | **Yes** |
-| **Simulation Execution Time (500 sc)** | 0.099s | **0.071s (28% faster)** | 1.176s |
+To launch the complete application with a single command:
+
+```powershell
+.venv\Scripts\python launch_platform.py
+```
+
+This simultaneously starts:
+- **FastAPI Backend**: `http://127.0.0.1:8000`
+- **Swagger Documentation**: `http://127.0.0.1:8000/docs`
+- **Frontend Dashboard (Dev)**: `http://localhost:5173`
+- **Integrated Production SPA**: `http://127.0.0.1:8000/app`
+
+### Option B: Independent Service Startup
+
+**Terminal 1 — Backend API:**
+```powershell
+.venv\Scripts\uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+**Terminal 2 — Frontend App:**
+```powershell
+cd frontend
+npm run dev
+```
+
+### Option C: Build Production Frontend Assets
+
+```powershell
+cd frontend
+npm run build
+```
+The compiled assets will be built into `frontend/dist/` and automatically served by FastAPI at `http://127.0.0.1:8000/app`.
 
 ---
 
-## 8. Safety Guarantees
+## 5. Verification & Automated Tests
 
-The system implements strict physical safety invariants enforced by `check_movement_safety`:
-1. **Vertex Safety**: At most one robot can occupy any node $u \in V$ at time $t$.
-2. **Edge Safety**: If AMR $i$ traverses $u \to v$, no AMR $j$ can traverse $v \to u$ at time $t$.
-3. **Stationary Preservation**: No robot may enter a node occupied by a stationary robot.
-4. **Fail-Safe Independence**: Machine Learning provides risk heuristics, but the movement resolver independently checks and enforces physical collision boundaries.
+Run the full end-to-end demonstration and test suite:
 
+```powershell
+.venv\Scripts\python run_project.py
+```
+
+Or run pytest directly:
+
+```powershell
+.venv\Scripts\pytest -v
+```
+
+### Current Test Suite Status:
+- **Total Tests Collected**: 37 automated tests
+- **Tests Passing**: 37 passed (100%)
+- **Safety Invariant Violations**: 0
+- **Categories Covered**:
+  - Manhattan A* routing and obstacle avoidance
+  - Collision prevention (vertex exclusion, head-on swap prevention)
+  - Circular rotational shifts ($\ge 3$ AMRs)
+  - Stationary obstacle blocking and movement chains
+  - Deadlock recovery and cooldown-managed rerouting
+  - ML advisor inference bounds and fallback resilience
+  - REST API lifecycle (robots, tasks, warehouse, simulation, ML predictions, experiments)

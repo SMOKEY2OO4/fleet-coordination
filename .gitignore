@@ -3,3 +3,24 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python and test artifacts
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated local project inventories
+important_files.txt
+project_structure.txt

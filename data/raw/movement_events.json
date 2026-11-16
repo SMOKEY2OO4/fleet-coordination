@@ -85,5 +85,2175 @@
         "next_node": null,
         "planned_path": null,
         "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:03:00.713307+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:00.713901+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:03:00.715945+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:00.718088+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:00.718730+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.003
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:00.719293+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:03:00.721989+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:03:18.584762+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:18.585402+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:03:18.587437+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:18.591132+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:18.592041+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.005
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:03:18.592591+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:03:18.594444+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:16:36.533869+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:16:36.534798+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:16:36.537758+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:16:36.540934+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:16:36.542665+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.005
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:16:36.543709+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:16:36.547627+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:25:40.409815+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:25:40.410947+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:25:40.413546+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:25:40.416371+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:25:40.417320+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.004
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:25:40.418297+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:25:40.422039+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:32:07.304021+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:32:07.305103+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:32:07.308008+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:32:07.311727+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:32:07.313457+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.005
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:32:07.314374+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:32:07.316875+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:45:05.585928+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:45:05.587986+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:45:05.590449+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:45:05.592620+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:45:05.593674+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.003
+        }
+    },
+    {
+        "timestamp": "2026-11-03T17:45:05.594718+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T17:45:05.596963+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:00:50.342996+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:00:50.345267+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:00:50.349549+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:00:50.354072+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:00:50.356114+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.007
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:00:50.358102+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:00:50.362024+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:08:48.402416+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:08:48.403679+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:08:48.406073+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:08:48.408332+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:08:48.409438+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.003
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:08:48.410559+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:08:48.412644+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:11:48.308190+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:11:48.309677+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:11:48.312109+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:11:48.314192+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:11:48.315432+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.003
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:11:48.317095+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:11:48.319445+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:22:55.302399+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:22:55.303716+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:22:55.305952+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:22:55.308655+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:22:55.309956+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.004
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:22:55.311109+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:22:55.313262+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:28:41.963262+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:28:41.964773+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:28:41.967413+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:28:41.969857+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:28:41.971185+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.004
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:28:41.972433+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:28:41.974995+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:36:56.895533+00:00",
+        "robot_id": "AMR-06",
+        "task_id": "fd2f15a3-5ab4-4e57-9ef5-d2b6f0506160",
+        "event_type": "pickup_reached",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:36:58.049742+00:00",
+        "robot_id": "AMR-06",
+        "task_id": "fd2f15a3-5ab4-4e57-9ef5-d2b6f0506160",
+        "event_type": "movement",
+        "current_node": "A",
+        "next_node": "B",
+        "planned_path": [
+            "A",
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:37:21.823062+00:00",
+        "robot_id": "AMR-06",
+        "task_id": "fd2f15a3-5ab4-4e57-9ef5-d2b6f0506160",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:37:23.934371+00:00",
+        "robot_id": "AMR-06",
+        "task_id": "fd2f15a3-5ab4-4e57-9ef5-d2b6f0506160",
+        "event_type": "movement",
+        "current_node": "C",
+        "next_node": "F",
+        "planned_path": [
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:37:27.883517+00:00",
+        "robot_id": "AMR-06",
+        "task_id": "fd2f15a3-5ab4-4e57-9ef5-d2b6f0506160",
+        "event_type": "movement",
+        "current_node": "F",
+        "next_node": "I",
+        "planned_path": [
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:37:27.885705+00:00",
+        "robot_id": "AMR-06",
+        "task_id": "fd2f15a3-5ab4-4e57-9ef5-d2b6f0506160",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:40:30.463675+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "7fde7ef2-5267-48aa-8906-a6eede4dc7f5",
+        "event_type": "pickup_reached",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:40:35.698586+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "7fde7ef2-5267-48aa-8906-a6eede4dc7f5",
+        "event_type": "movement",
+        "current_node": "A",
+        "next_node": "D",
+        "planned_path": [
+            "A",
+            "D"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:40:35.701865+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "7fde7ef2-5267-48aa-8906-a6eede4dc7f5",
+        "event_type": "task_completed",
+        "current_node": "D",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:47:35.760679+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "5e8d1f8c-6b0d-4805-a86e-ac5142503598",
+        "event_type": "blocked",
+        "current_node": "D",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:47:37.946594+00:00",
+        "robot_id": "AMR-02",
+        "task_id": "439546a4-3395-4ae6-86c0-2ef7e73dc3fa",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "D"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:47:39.516152+00:00",
+        "robot_id": "AMR-03",
+        "task_id": "cf272192-2397-4a2b-8dce-8a43b9861102",
+        "event_type": "pickup_reached",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T18:48:09.267645+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "5e8d1f8c-6b0d-4805-a86e-ac5142503598",
+        "event_type": "blocked",
+        "current_node": "D",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:49:12.892552+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "5e8d1f8c-6b0d-4805-a86e-ac5142503598",
+        "event_type": "blocked",
+        "current_node": "D",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:49:13.501819+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "5e8d1f8c-6b0d-4805-a86e-ac5142503598",
+        "event_type": "blocked",
+        "current_node": "D",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T18:49:13.682559+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "5e8d1f8c-6b0d-4805-a86e-ac5142503598",
+        "event_type": "blocked",
+        "current_node": "D",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:24:47.943440+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:24:47.945041+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:24:47.947392+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:24:47.949916+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:24:47.951471+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.004
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:24:47.953181+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:24:47.955823+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:34:42.587285+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:34:42.588970+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:34:42.593329+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:34:42.595763+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:34:42.597928+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.005
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:34:42.599497+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:34:42.602136+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:35:13.365721+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:35:13.367540+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:35:13.370263+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:35:13.373162+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:35:13.374935+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.005
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:35:13.376910+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:35:13.380130+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:40:18.722527+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "reroute",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "C"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:40:18.724323+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "E",
+        "planned_path": [
+            "B",
+            "E",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:40:18.726871+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:40:18.729852+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "C",
+                "E"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:40:18.731568+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "waiting_completed",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "waiting_duration_seconds": 0.005
+        }
+    },
+    {
+        "timestamp": "2026-11-03T19:40:18.733599+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "movement",
+        "current_node": "B",
+        "next_node": "C",
+        "planned_path": [
+            "B",
+            "C",
+            "F",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-03T19:40:18.736747+00:00",
+        "robot_id": "AMR-01",
+        "task_id": "TASK-01",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:03:33.205189+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "pickup_reached",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:03:36.453298+00:00",
+        "robot_id": "AMR-02",
+        "task_id": "66460adb-7341-485b-a35a-5191b8eb311b",
+        "event_type": "blocked",
+        "current_node": "E",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:03:38.748809+00:00",
+        "robot_id": "AMR-03",
+        "task_id": "008628c4-533c-488a-b891-8e9434efa016",
+        "event_type": "pickup_reached",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:03:40.813606+00:00",
+        "robot_id": "AMR-04",
+        "task_id": "1b95e3a5-90ad-4898-91b4-398f144e0db1",
+        "event_type": "pickup_reached",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:05:43.672984+00:00",
+        "robot_id": "AMR-02",
+        "task_id": "66460adb-7341-485b-a35a-5191b8eb311b",
+        "event_type": "blocked",
+        "current_node": "E",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:07:15.235867+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "reroute",
+        "current_node": "A",
+        "next_node": "D",
+        "planned_path": [
+            "A",
+            "D",
+            "G",
+            "H",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "A",
+                "B",
+                "C",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "A",
+                "B",
+                "E"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:07:15.240774+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "movement",
+        "current_node": "A",
+        "next_node": "D",
+        "planned_path": [
+            "A",
+            "D",
+            "G",
+            "H",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:07:15.912975+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "reroute",
+        "current_node": "D",
+        "next_node": "G",
+        "planned_path": [
+            "D",
+            "G",
+            "H",
+            "I"
+        ],
+        "details": {
+            "original_path": [
+                "D",
+                "E",
+                "F",
+                "I"
+            ],
+            "occupied_nodes": [
+                "A",
+                "B",
+                "E"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:07:15.917214+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "movement",
+        "current_node": "D",
+        "next_node": "G",
+        "planned_path": [
+            "D",
+            "G",
+            "H",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:07:16.098593+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "movement",
+        "current_node": "G",
+        "next_node": "H",
+        "planned_path": [
+            "G",
+            "H",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:07:16.263935+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "movement",
+        "current_node": "H",
+        "next_node": "I",
+        "planned_path": [
+            "H",
+            "I"
+        ],
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:07:16.267891+00:00",
+        "robot_id": "AMR-1",
+        "task_id": "825a38af-4c7b-4e6d-85e0-3508ffafab5d",
+        "event_type": "task_completed",
+        "current_node": "I",
+        "next_node": null,
+        "planned_path": null,
+        "details": {}
+    },
+    {
+        "timestamp": "2026-11-16T09:08:10.600715+00:00",
+        "robot_id": "AMR-03",
+        "task_id": "008628c4-533c-488a-b891-8e9434efa016",
+        "event_type": "blocked",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "B",
+                "E",
+                "I"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:08:12.858684+00:00",
+        "robot_id": "AMR-03",
+        "task_id": "008628c4-533c-488a-b891-8e9434efa016",
+        "event_type": "blocked",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "B",
+                "E",
+                "I"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:08:15.094603+00:00",
+        "robot_id": "AMR-03",
+        "task_id": "008628c4-533c-488a-b891-8e9434efa016",
+        "event_type": "blocked",
+        "current_node": "A",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "B",
+                "E",
+                "I"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:08:16.957057+00:00",
+        "robot_id": "AMR-02",
+        "task_id": "66460adb-7341-485b-a35a-5191b8eb311b",
+        "event_type": "blocked",
+        "current_node": "E",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "B",
+                "I"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:08:19.638821+00:00",
+        "robot_id": "AMR-04",
+        "task_id": "1b95e3a5-90ad-4898-91b4-398f144e0db1",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "E",
+                "I"
+            ],
+            "reason": "No safe alternative route available"
+        }
+    },
+    {
+        "timestamp": "2026-11-16T09:08:20.252753+00:00",
+        "robot_id": "AMR-04",
+        "task_id": "1b95e3a5-90ad-4898-91b4-398f144e0db1",
+        "event_type": "blocked",
+        "current_node": "B",
+        "next_node": null,
+        "planned_path": null,
+        "details": {
+            "occupied_nodes": [
+                "A",
+                "E",
+                "I"
+            ],
+            "reason": "No safe alternative route available"
+        }
     }
 ]

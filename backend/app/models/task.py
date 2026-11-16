@@ -12,9 +12,16 @@ class TaskStatus(str, Enum):
     CANCELLED = "CANCELLED"
 
 
+class TaskPriority(str, Enum):
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
 class TaskCreate(BaseModel):
     start_node: str = Field(min_length=1)
     destination_node: str = Field(min_length=1)
+    priority: TaskPriority = TaskPriority.MEDIUM
 
 
 class Task(BaseModel):
@@ -22,4 +29,5 @@ class Task(BaseModel):
     start_node: str
     destination_node: str
     status: TaskStatus = TaskStatus.QUEUED
+    priority: TaskPriority = TaskPriority.MEDIUM
     assigned_robot_id: str | None = None

@@ -4,12 +4,12 @@ from uuid import uuid4
 from fastapi import APIRouter, HTTPException
 
 from backend.app.models.task import Task, TaskCreate, TaskStatus
+from backend.app.models.robot import RobotStatus
 from backend.app.planning.warehouse_graph import create_warehouse_graph
-from backend.app.core.state import tasks
+from backend.app.core.state import tasks, robots
 from backend.app.services.task_allocator import assign_task
-router = APIRouter(prefix="/tasks", tags=["Task Management"])
 
-# Temporary in-memory storage. Tasks reset when the server restarts.
+router = APIRouter(prefix="/tasks", tags=["Task Management"])
 
 
 @router.post("/", response_model=Task, status_code=201)
@@ -27,6 +27,7 @@ def create_task(request: TaskCreate):
         start_node=request.start_node,
         destination_node=request.destination_node,
         status=TaskStatus.QUEUED,
+        priority=request.priority,
     )
 
     tasks[task.task_id] = task
@@ -46,6 +47,8 @@ def get_task(task_id: str):
         raise HTTPException(status_code=404, detail="Task not found.")
 
     return task
+
+
 @router.post("/{task_id}/assign")
 def assign_task_endpoint(task_id: str):
     result = assign_task(task_id)
@@ -54,3 +57,43 @@ def assign_task_endpoint(task_id: str):
         raise HTTPException(status_code=400, detail=result["message"])
 
     return result
+
+
+@router.post("/{task_id}/cancel")
+def cancel_task(task_id: str):
+    task = tasks.get(task_id)
+    if task is None:
+        raise HTTPException(status_code=404, detail="Task not found.")
+
+    if task.status in (TaskStatus.COMPLETED, TaskStatus.CANCELLED):
+        raise HTTPException(
+            status_code=400,
+            detail=f"Task already {task.status.value.lower()}.",
+        )
+
+    task.status = TaskStatus.CANCELLED
+
+    # If assigned to a robot, release the robot
+    if task.assigned_robot_id and task.assigned_robot_id in robots:
+        robot = robots[task.assigned_robot_id]
+        if robot.current_task_id == task_id:
+            robot.current_task_id = None
+            robot.status = RobotStatus.IDLE
+
+    return {"success": True, "message": f"Task {task_id} cancelled.", "task": task}
+
+
+@router.delete("/{task_id}")
+def delete_task(task_id: str):
+    task = tasks.get(task_id)
+    if task is None:
+        raise HTTPException(status_code=404, detail="Task not found.")
+
+    if task.assigned_robot_id and task.assigned_robot_id in robots:
+        robot = robots[task.assigned_robot_id]
+        if robot.current_task_id == task_id:
+            robot.current_task_id = None
+            robot.status = RobotStatus.IDLE
+
+    del tasks[task_id]
+    return {"success": True, "message": f"Task {task_id} deleted."}
