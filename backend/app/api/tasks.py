@@ -8,6 +8,7 @@ from backend.app.models.robot import RobotStatus
 from backend.app.planning.warehouse_graph import create_warehouse_graph
 from backend.app.core.state import tasks, robots
 from backend.app.services.task_allocator import assign_task
+from backend.app.services.simulation_service import simulation_service
 
 router = APIRouter(prefix="/tasks", tags=["Task Management"])
 
@@ -56,6 +57,19 @@ def assign_task_endpoint(task_id: str):
     if not result["success"]:
         raise HTTPException(status_code=400, detail=result["message"])
 
+    try:
+        simulation_service.load_assigned_task(task_id)
+    except ValueError as exc:
+        # Roll back assignment so the task remains available for correction/retry.
+        task = tasks.get(task_id)
+        if task:
+            task.status = TaskStatus.QUEUED
+            task.assigned_robot_id = None
+        robot_id = result.get("robot_id")
+        if robot_id in robots:
+            robots[robot_id].status = RobotStatus.IDLE
+            robots[robot_id].current_task_id = None
+        raise HTTPException(status_code=400, detail=str(exc))
     return result
 
 

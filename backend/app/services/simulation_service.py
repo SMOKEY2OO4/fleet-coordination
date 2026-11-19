@@ -25,6 +25,9 @@ from ml.simulate_warehouse_v2 import (
 from tests.test_coordination import resolve_simultaneous_moves_improved
 from tests.test_coordination_helpers import check_movement_safety
 from ml.ml_coordination import MLCongestionAdvisor, ml_congestion_aware_path
+from backend.app.core.state import robots as fleet_robots, tasks as fleet_tasks
+from backend.app.models.robot import RobotStatus
+from backend.app.models.task import TaskStatus
 
 ROBOT_COLORS = {
     "AMR-01": "#38bdf8",  # Sky blue
@@ -43,6 +46,7 @@ class SimulationService:
         self.algorithm: str = "Improved Resolver"
         self.scenario_id: int = 1
         self.fleet_size: int = 4
+        self.mode: str = "RESEARCH"
         self.robots: List[Dict[str, Any]] = []
         self.events_history: List[Dict[str, Any]] = []
         self.successful_movements: int = 0
@@ -111,12 +115,115 @@ class SimulationService:
             })
         return robots
 
+    def load_assigned_task(self, task_id: str) -> Dict[str, Any]:
+        """Load an assigned shared-fleet task into the live task-driven simulator."""
+        task = fleet_tasks.get(task_id)
+        if task is None or not task.assigned_robot_id:
+            raise ValueError("Task must exist and have an assigned robot before simulation loading.")
+        robot = fleet_robots.get(task.assigned_robot_id)
+        if robot is None:
+            raise ValueError("Assigned robot is not registered in the shared fleet.")
+
+        # Enter task-driven mode without disturbing the research scenario algorithms.
+        if self.mode != "TASK_DRIVEN":
+            self.pause()
+            self.mode = "TASK_DRIVEN"
+            self.robots = []
+            self.time_step = 0
+            self.successful_movements = 0
+            self.blocked_movements = 0
+            self.total_waiting_steps = 0
+            self.deadlock_recovery_invocations = 0
+            self.safety_violations = 0
+            self.events_history = []
+
+        existing = next((r for r in self.robots if r["robot_id"] == robot.robot_id), None)
+        path_to_pickup = shortest_path(robot.current_node, task.start_node)
+        if not path_to_pickup:
+            raise ValueError(f"No route from {robot.current_node} to pickup node {task.start_node}.")
+        path_to_delivery = shortest_path(task.start_node, task.destination_node)
+        if not path_to_delivery:
+            raise ValueError(f"No route from pickup node {task.start_node} to destination {task.destination_node}.")
+
+        sim_robot = {
+            "robot_id": robot.robot_id,
+            "current_node": robot.current_node,
+            "original_goal": task.destination_node,
+            "path": path_to_pickup,
+            "path_index": 0,
+            "waiting_steps": 0,
+            "total_waiting_steps": 0,
+            "completed": False,
+            "color": ROBOT_COLORS.get(robot.robot_id, "#38bdf8"),
+            "battery_percent": robot.battery_percent,
+            "recent_nodes": [robot.current_node],
+            "recovery_history": [],
+            "recovery_cooldown": 0,
+            "task_id": task.task_id,
+            "pickup_node": task.start_node,
+            "delivery_node": task.destination_node,
+            "phase": "TO_PICKUP" if robot.current_node != task.start_node else "TO_DELIVERY",
+        }
+        if sim_robot["phase"] == "TO_DELIVERY":
+            sim_robot["path"] = path_to_delivery
+        if existing:
+            self.robots[self.robots.index(existing)] = sim_robot
+        else:
+            self.robots.append(sim_robot)
+        self.fleet_size = len(self.robots)
+        robot.status = RobotStatus.MOVING
+        task.status = TaskStatus.IN_PROGRESS if sim_robot["phase"] == "TO_DELIVERY" else TaskStatus.ASSIGNED
+        self.events_history.insert(0, {
+            "time_step": self.time_step,
+            "event_type": "task_loaded",
+            "robot_id": robot.robot_id,
+            "message": f"{robot.robot_id} assigned mission {task.task_id[:8]}: {robot.current_node} → {task.start_node} → {task.destination_node}",
+            "timestamp": f"T{self.time_step}",
+        })
+        return self.get_state()
+
+    def _finish_task(self, sim_robot: Dict[str, Any]) -> None:
+        task_id = sim_robot.get("task_id")
+        task = fleet_tasks.get(task_id)
+        robot = fleet_robots.get(sim_robot["robot_id"])
+        if task:
+            task.status = TaskStatus.COMPLETED
+        if robot:
+            robot.current_node = sim_robot["current_node"]
+            robot.status = RobotStatus.IDLE
+            robot.current_task_id = None
+            robot.battery_percent = max(0.0, robot.battery_percent - 1.0)
+        sim_robot["completed"] = True
+        self.events_history.insert(0, {
+            "time_step": self.time_step,
+            "event_type": "goal_reached",
+            "robot_id": sim_robot["robot_id"],
+            "node": sim_robot["current_node"],
+            "message": f"{sim_robot['robot_id']} completed mission {str(task_id)[:8]} at node {sim_robot['current_node']}.",
+            "timestamp": f"T{self.time_step}",
+        })
+
     def reset(self, fleet_size: int = 4, algorithm: str = "Improved Resolver", scenario_id: int = 1):
+        # If a task-driven run is reset, return unfinished missions to the queue
+        # rather than leaving shared fleet records stuck in ASSIGNED/IN_PROGRESS.
+        if self.mode == "TASK_DRIVEN":
+            for sim_robot in self.robots:
+                if sim_robot.get("completed"):
+                    continue
+                task = fleet_tasks.get(sim_robot.get("task_id"))
+                robot = fleet_robots.get(sim_robot.get("robot_id"))
+                if task and task.status in (TaskStatus.ASSIGNED, TaskStatus.IN_PROGRESS):
+                    task.status = TaskStatus.QUEUED
+                    task.assigned_robot_id = None
+                if robot:
+                    robot.status = RobotStatus.IDLE
+                    robot.current_task_id = None
         self.is_running = False
         if self._loop_task and not self._loop_task.done():
             self._loop_task.cancel()
             self._loop_task = None
 
+        self.mode = "RESEARCH"
         self.fleet_size = max(2, min(5, fleet_size))
         self.algorithm = algorithm
         self.scenario_id = scenario_id
@@ -301,9 +408,14 @@ class SimulationService:
                     "message": f"{rid} moved from {r['current_node']} to {dest}",
                     "timestamp": f"T{t}"
                 })
+                if self.mode == "TASK_DRIVEN" and rid in fleet_robots:
+                    fleet_robots[rid].current_node = dest
+                    fleet_robots[rid].status = RobotStatus.MOVING
             else:
                 r["waiting_steps"] += 1
                 r["total_waiting_steps"] += 1
+                if self.mode == "TASK_DRIVEN" and rid in fleet_robots:
+                    fleet_robots[rid].status = RobotStatus.WAITING
                 self.blocked_movements += 1
                 self.total_waiting_steps += 1
                 self.events_history.insert(0, {
@@ -323,16 +435,56 @@ class SimulationService:
             if len(r["recent_nodes"]) > RECENT_NODE_LIMIT:
                 r["recent_nodes"].pop(0)
 
-            if r["current_node"] == r["original_goal"]:
-                r["completed"] = True
+            if self.mode == "TASK_DRIVEN" and r.get("phase") == "TO_PICKUP" and r["current_node"] == r.get("pickup_node"):
+                delivery_path = shortest_path(r["current_node"], r.get("delivery_node"))
+                r["path"] = delivery_path or [r["current_node"]]
+                r["path_index"] = 0
+                r["phase"] = "TO_DELIVERY"
+                task = fleet_tasks.get(r.get("task_id"))
+                if task:
+                    task.status = TaskStatus.IN_PROGRESS
                 self.events_history.insert(0, {
-                    "time_step": t,
-                    "event_type": "goal_reached",
-                    "robot_id": r["robot_id"],
-                    "node": nxt,
-                    "message": f"{r['robot_id']} arrived at destination node {nxt}! Delivery complete.",
+                    "time_step": t, "event_type": "pickup_reached", "robot_id": r["robot_id"],
+                    "node": r["current_node"],
+                    "message": f"{r['robot_id']} reached pickup node {r['current_node']}; travelling to delivery node {r.get('delivery_node')}.",
                     "timestamp": f"T{t}"
                 })
+                if r["current_node"] == r.get("delivery_node"):
+                    self._finish_task(r)
+            elif r["current_node"] == r["original_goal"]:
+                if self.mode == "TASK_DRIVEN":
+                    self._finish_task(r)
+                else:
+                    r["completed"] = True
+                    self.events_history.insert(0, {
+                        "time_step": t,
+                        "event_type": "goal_reached",
+                        "robot_id": r["robot_id"],
+                        "node": nxt,
+                        "message": f"{r['robot_id']} arrived at destination node {nxt}! Delivery complete.",
+                        "timestamp": f"T{t}"
+                    })
+
+        # Automatically dispatch queued missions when a registered robot becomes idle.
+        if self.mode == "TASK_DRIVEN":
+            from backend.app.services.task_allocator import assign_task
+            queued = sorted(
+                (task for task in fleet_tasks.values() if task.status == TaskStatus.QUEUED),
+                key=lambda task: {"HIGH": 0, "MEDIUM": 1, "LOW": 2}.get(task.priority.value, 1),
+            )
+            for task in queued:
+                assignment = assign_task(task.task_id)
+                if assignment.get("success"):
+                    try:
+                        self.load_assigned_task(task.task_id)
+                    except ValueError as exc:
+                        task.status = TaskStatus.QUEUED
+                        task.assigned_robot_id = None
+                        self.events_history.insert(0, {
+                            "time_step": t, "event_type": "dispatch_error",
+                            "message": f"Could not dispatch task {task.task_id[:8]}: {exc}",
+                            "timestamp": f"T{t}",
+                        })
 
         # Keep latest 60 events in memory
         self.events_history = self.events_history[:60]
@@ -372,6 +524,10 @@ class SimulationService:
                 "color": r["color"],
                 "battery_percent": r["battery_percent"],
                 "status": "COMPLETED" if r["completed"] else ("WAITING" if r["waiting_steps"] > 0 else "MOVING"),
+                "task_id": r.get("task_id"),
+                "phase": r.get("phase", "RESEARCH"),
+                "pickup_node": r.get("pickup_node"),
+                "delivery_node": r.get("delivery_node"),
             })
 
         total_moves = self.successful_movements + self.blocked_movements
@@ -383,6 +539,7 @@ class SimulationService:
             "speed_ms": self.speed_ms,
             "time_step": self.time_step,
             "algorithm": self.algorithm,
+            "mode": self.mode,
             "scenario_id": self.scenario_id,
             "fleet_size": self.fleet_size,
             "robots": robots_view,

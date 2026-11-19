@@ -1,0 +1,28 @@
+FLEET COORDINATION TASK-DRIVEN SIMULATION PATCH
+
+Files to replace (keep the folder structure):
+1) backend/app/services/simulation_service.py
+2) backend/app/api/tasks.py
+
+What this patch changes:
+- Keeps the existing research scenario reset behaviour as the default.
+- When a task is manually assigned from Task Management, loads that task and its registered robot into the live simulation.
+- Simulates the complete pickup leg and delivery leg.
+- Updates shared Robot and Task status/position as the robot moves.
+- Marks tasks COMPLETED and releases robots to IDLE at the destination.
+- Automatically dispatches queued tasks by priority when a registered robot becomes idle.
+- Retains the existing movement resolver and safety verification calls.
+
+INSTALL:
+1. Stop the backend server (Ctrl+C).
+2. Make backups of the two existing files.
+3. Extract this ZIP into the project root D:\fleet-coordination_copy, preserving folders, and overwrite the two files.
+4. Start backend again using your usual launch command.
+5. Open Task Management. Create tasks, register enough robots in Robot Fleet, and click Assign on a queued task.
+6. Open Live Warehouse Control Centre and press Start. The simulator should show the assigned robot moving to pickup and then destination.
+
+IMPORTANT:
+- The simulation uses the existing 9-node graph A-I.
+- Research mode is still available through the existing Reset control.
+- A task-driven run starts when you assign a task. Resetting the simulator returns it to research mode.
+- Test with one robot and one task first, then add more robots/tasks.

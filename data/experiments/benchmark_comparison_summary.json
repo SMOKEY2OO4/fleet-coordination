@@ -15,7 +15,7 @@
         "deadlock_recovery_invocations": 1062,
         "average_route_length": 2.96,
         "safety_violations": 0,
-        "simulation_time_seconds": 0.063
+        "simulation_time_seconds": 0.074
     },
     {
         "algorithm": "Improved Resolver",
@@ -33,7 +33,7 @@
         "deadlock_recovery_invocations": 1071,
         "average_route_length": 2.96,
         "safety_violations": 0,
-        "simulation_time_seconds": 0.077
+        "simulation_time_seconds": 0.075
     },
     {
         "algorithm": "Improved Recovery",
@@ -51,7 +51,7 @@
         "deadlock_recovery_invocations": 1071,
         "average_route_length": 2.96,
         "safety_violations": 0,
-        "simulation_time_seconds": 0.075
+        "simulation_time_seconds": 0.1
     },
     {
         "algorithm": "ML-Assisted",
@@ -69,6 +69,6 @@
         "deadlock_recovery_invocations": 1286,
         "average_route_length": 2.96,
         "safety_violations": 0,
-        "simulation_time_seconds": 1.171
+        "simulation_time_seconds": 1.324
     }
 ]
